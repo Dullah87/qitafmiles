@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const saudiaMilesCost = milesNeeded * mileCost;
 
         // Update the modal's content
-        qitafPointsElement.textContent = `${qitafPointsNeeded} points`;
-        totalQitafCostElement.textContent = `${qitafPointsCost} SAR`;
-        saudiaMilesCostElement.textContent = `${saudiaMilesCost} SAR`;
+qitafPointsElement.textContent = qitafPointsNeeded + " points";
+totalQitafCostElement.textContent = qitafPointsCost.toFixed(2) + " SAR";
+saudiaMilesCostElement.textContent = saudiaMilesCost.toFixed(2) + " SAR";
 
 
 	// Calculate and display the price comparison
@@ -55,4 +55,11 @@ document.addEventListener("DOMContentLoaded", function() {
             resultsModal.style.display = "none";
         }
     };
+});
+
+// Adding functionality to enable editing by simply clicking the readonly input fields
+document.querySelectorAll("input[readonly]").forEach(inputField => {
+    inputField.addEventListener("click", function() {
+        inputField.removeAttribute("readonly");
+    });
 });

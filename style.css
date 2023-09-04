@@ -122,6 +122,9 @@ span {
 
 /* Modal Content */
 .modal-content {
+    padding-top: 40px;
+    text-align: left;
+    padding-top: 50px;
     position: relative;
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
@@ -134,8 +137,11 @@ span {
 
 /* The Close Button */
 .close {
+    padding: 5px 10px;
     color: #aaa;
-    float: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
@@ -163,4 +169,81 @@ footer a {
 
 footer a:hover {
     text-decoration: underline; /* Add underline on hover */
+}
+
+
+.modal-content {
+    padding-top: 40px;
+    text-align: left;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+}
+
+.result-row p {
+    flex: 0.7;
+    margin: 0;
+    flex: 1;
+}
+
+.result-row span {
+    font-weight: bold;
+    color: #007bff;
+    margin-left: 8px;
+}
+
+#comparisonResult {
+    color: #007bff; /* Making it the same color as the numbers */
+}
+
+#comparisonResult {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+}
+.modal-title {
+    margin-top: -30px;  /* Adjusting margin to position the title correctly */
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.edit-button {
+    display: inline-block;
+    width: auto;
+    padding: 5px 8px;
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.edit-button:hover {
+    transform: translateY(-1px);
+}
+
+.edit-button:active {
+    transform: translateY(0);
 }
