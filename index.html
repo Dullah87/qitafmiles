@@ -8,12 +8,14 @@
 </head>
 <body>
     <h1>Flight Cost Calculator</h1>
-    <label for="flightCost">Flight Cost ($):</label>
-    <input type="number" id="flightCost">
-    <label for="milesCost">Cost of Miles ($ per mile):</label>
-    <input type="number" id="milesCost">
+    <label for="milesInput">How many miles do you need for a ticket?</label>
+    <input type="number" id="milesInput">
     <button id="calculateBtn">Calculate</button>
-    <p id="result"></p>
+    <div id="results">
+        <p>Total Qitaf points needed: <span id="qitafPoints"></span></p>
+        <p>Qitaf points will cost you in total: <span id="qitafCost"></span></p>
+        <p>If you purchase the miles directly from Saudia, they will cost: <span id="saudiaMilesCost"></span></p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
