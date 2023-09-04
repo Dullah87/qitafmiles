@@ -4,22 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Flight Calculator</title>
+    <title>Qitaf Miles Calculator</title>
 </head>
 <body>
-    <h1>Flight Cost Calculator</h1>
-    <label for="mileCost">Cost of 1 mile ($):</label>
+    <h1>Qitaf Miles Calculator</h1>
+
+<div class="container">
+
+    <label for="mileCost">Current cost of 1 mile from Saudia</label>
     <input type="number" id="mileCost" value="0.129398">
-    <label for="qitafCost">Cost of 1 Qitaf point ($):</label>
+    <label for="qitafCost">Current Cost of 1 Qitaf point:</label>
     <input type="number" id="qitafCost" value="0.35">
+<label for="ticketCost">Ticket's cost in SAR (optional):</label>
+<input type="number" id="ticketCost" placeholder="Enter ticket price in SAR">
+
     <label for="milesInput">How many miles do you need for a ticket?</label>
     <input type="number" id="milesInput">
     <button id="calculateBtn">Calculate</button>
-    <div id="results">
-        <p>Total Qitaf points needed: <span id="qitafPoints"></span></p>
-        <p>Qitaf points will cost you in total: <span id="qitafCost"></span></p>
-        <p>If you purchase the miles directly from Saudia, they will cost: <span id="saudiaMilesCost"></span></p>
+
+</div>
+
+
+<!-- Results Modal -->
+<div id="resultsModal" style="display: none;">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Total Qitaf points needed: <span id="qitafPoints"></span> points</p>
+        <p>Qitaf points will cost you in total: <span id="totalQitafCost"></span> SAR</p>
+        <p>If you purchase the miles directly from Saudia, they will cost: <span id="saudiaMilesCost"></span> SAR</p>
+        <p id="comparisonResult"></p> <!-- New line for comparison -->
     </div>
+</div>
+
+
+
     <script src="script.js"></script>
 </body>
+<footer>
+    Created by <a href="https://www.linkedin.com/in/alobodi/" target="_blank">Abdullah Alobodi</a>
+</footer>
 </html>

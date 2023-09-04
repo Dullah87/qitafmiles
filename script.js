@@ -1,24 +1,58 @@
-// Update the IDs to match the new input fields
-const mileCostInput = document.getElementById("mileCost");
-const qitafCostInput = document.getElementById("qitafCost");
-const qitafCostElement = document.getElementById("qitafCost"); // Update this line
+document.addEventListener("DOMContentLoaded", function() {
+    const mileCostElement = document.getElementById("mileCost");
+    const qitafCostElement = document.getElementById("qitafCost");
+    const ticketCostElement = document.getElementById("ticketCost");
+    const milesInputElement = document.getElementById("milesInput");
+    const calculateBtn = document.getElementById("calculateBtn");
+    const resultsModal = document.getElementById("resultsModal");
+    const qitafPointsElement = document.getElementById("qitafPoints");
+    const totalQitafCostElement = document.getElementById("totalQitafCost");
+    const saudiaMilesCostElement = document.getElementById("saudiaMilesCost");
+    const comparisonResultElement = document.getElementById("comparisonResult");
+    const closeBtn = document.querySelector(".close");
 
-// Modify the calculations to use the updated cost values
-calculateBtn.addEventListener("click", () => {
-    const milesInput = parseFloat(document.getElementById("milesInput").value);
-    const mileCost = parseFloat(mileCostInput.value);
-    const qitafCost = parseFloat(qitafCostInput.value);
+    calculateBtn.addEventListener("click", function() {
+        const mileCost = parseFloat(mileCostElement.value);
+        const qitafCost = parseFloat(qitafCostElement.value);
+        const milesNeeded = parseInt(milesInputElement.value);
+        const ticketCost = parseFloat(ticketCostElement.value);
 
-    if (isNaN(milesInput) || milesInput <= 0 || isNaN(mileCost) || isNaN(qitafCost)) {
-        alert("Please enter valid values.");
-        return;
-    }
+        // Check if user input is valid
+        if (isNaN(mileCost) || isNaN(qitafCost) || isNaN(milesNeeded)) {
+            alert("Please enter valid numbers in all fields.");
+            return;
+        }
 
-    const qitafPointsNeeded = milesInput / 5;
-    const qitafPointsCost = qitafPointsNeeded * qitafCost;
-    const saudiaMilesCost = mileCost * milesInput;
+        const qitafPointsNeeded = milesNeeded / 5;
+        const qitafPointsCost = qitafPointsNeeded * qitafCost;
+        const saudiaMilesCost = milesNeeded * mileCost;
 
-    qitafPointsElement.textContent = qitafPointsNeeded.toFixed(2);
-    qitafCostElement.textContent = `$${qitafPointsCost.toFixed(2)}`;
-    saudiaMilesCostElement.textContent = `$${saudiaMilesCost.toFixed(2)}`;
+        // Update the modal's content
+        qitafPointsElement.textContent = `${qitafPointsNeeded} points`;
+        totalQitafCostElement.textContent = `${qitafPointsCost} SAR`;
+        saudiaMilesCostElement.textContent = `${saudiaMilesCost} SAR`;
+
+
+	// Calculate and display the price comparison
+	if (ticketCost > 0) {
+    const savingsPercentage = ((ticketCost - qitafPointsCost) / ticketCost) * 100;
+    comparisonResultElement.textContent = `Buying the ticket using Qitaf points is 	${savingsPercentage.toFixed(2)}% cheaper than the original price of the ticket.`;
+} else {
+    comparisonResultElement.textContent = ""; // If no ticket cost provided, don't show a comparison
+}
+
+
+        resultsModal.style.display = "block";
+    });
+
+    // Close the modal
+    closeBtn.onclick = function() {
+        resultsModal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target === resultsModal) {
+            resultsModal.style.display = "none";
+        }
+    };
 });
