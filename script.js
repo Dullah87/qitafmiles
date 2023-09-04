@@ -1,29 +1,23 @@
-const calculateBtn = document.getElementById("calculateBtn");
-const qitafPointsElement = document.getElementById("qitafPoints");
-const qitafCostElement = document.getElementById("qitafCost");
-const saudiaMilesCostElement = document.getElementById("saudiaMilesCost");
+// Update the IDs to match the new input fields
+const mileCostInput = document.getElementById("mileCost");
+const qitafCostInput = document.getElementById("qitafCost");
 
+// Modify the calculations to use the updated cost values
 calculateBtn.addEventListener("click", () => {
-    console.log("Button clicked"); // Debug line
-
     const milesInput = parseFloat(document.getElementById("milesInput").value);
+    const mileCost = parseFloat(mileCostInput.value);
+    const qitafCost = parseFloat(qitafCostInput.value);
 
-    console.log("Miles input:", milesInput); // Debug line
-
-    if (isNaN(milesInput) || milesInput <= 0) {
-        alert("Please enter a valid positive number of miles.");
+    if (isNaN(milesInput) || milesInput <= 0 || isNaN(mileCost) || isNaN(qitafCost)) {
+        alert("Please enter valid values.");
         return;
     }
 
     const qitafPointsNeeded = milesInput / 5;
-    const qitafCost = qitafPointsNeeded * 0.35;
-    const saudiaMilesCost = 0.129398 * milesInput;
-
-    console.log("Qitaf points:", qitafPointsNeeded); // Debug line
-    console.log("Qitaf cost:", qitafCost); // Debug line
-    console.log("Saudia miles cost:", saudiaMilesCost); // Debug line
+    const qitafPointsCost = qitafPointsNeeded * qitafCost;
+    const saudiaMilesCost = mileCost * milesInput;
 
     qitafPointsElement.textContent = qitafPointsNeeded.toFixed(2);
-    qitafCostElement.textContent = `$${qitafCost.toFixed(2)}`;
+    qitafCostElement.textContent = `$${qitafPointsCost.toFixed(2)}`;
     saudiaMilesCostElement.textContent = `$${saudiaMilesCost.toFixed(2)}`;
 });
