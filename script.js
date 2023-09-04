@@ -1,6 +1,7 @@
 // Update the IDs to match the new input fields
 const mileCostInput = document.getElementById("mileCost");
 const qitafCostInput = document.getElementById("qitafCost");
+const qitafCostElement = document.getElementById("qitafCost"); // Update this line
 
 // Modify the calculations to use the updated cost values
 calculateBtn.addEventListener("click", () => {
