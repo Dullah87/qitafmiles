@@ -25,3 +25,13 @@ button {
 #result {
     margin-top: 20px;
 }
+
+/* Your existing styles here */
+
+/* Additional styling for results */
+#results {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
